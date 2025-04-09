@@ -9,15 +9,23 @@
   display: none;
 }
 
-nav ul {
+nav.navbar {
   display: flex;
-  justify-content: center;
-  list-style: none;
+  justify-content: space-between;
+  align-items: center;
   background: tomato;
   padding: 20px;
   position: fixed;
-  z-index: 9999;
+  z-index: 99;
   width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
 }
 
 nav ul li {
@@ -34,6 +42,26 @@ nav ul li a {
 nav ul li a:hover {
   color: #eee;
   transition: all 0.5s;
+}
+
+#themeToggle {
+  background: #444;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dark-theme #themeToggle {
+  background-color: #f39b43;
+}
+
+#themeToggle:hover {
+  background: #efa17a;
 }
 
 main {
@@ -89,6 +117,34 @@ main {
   font-size: 18px;
   color: #222;
   font-weight: 500;
+}
+
+/* FAQ Component */
+.faq {
+  padding: 30px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.answer {
+  display: none;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.answer.visible {
+  display: block;
 }
 
 /* Grid for services.html */
@@ -170,6 +226,7 @@ button:hover {
 
 hr {
   margin-top: 36px;
+  color: #555;
 }
 
 footer {
@@ -194,6 +251,23 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  nav.navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #themeToggle {
+    margin-top: 10px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero h1 {
     font-size: 24px;
@@ -206,4 +280,54 @@ footer {
   button {
     padding: 8px;
   }
+}
+
+/* //////////////////////////////////////////////////////////////////////////// */
+/* Theme Toggle */
+.dark-theme {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-theme button {
+  background-color: #f39b43;
+}
+
+.dark-theme nav.navbar {
+  background-color: #333;
+}
+
+.dark-theme nav ul li a {
+  color: #f0f0f0;
+}
+
+.dark-theme nav ul li a:hover {
+  color: #ccc;
+}
+
+.dark-theme .container div {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-theme .service-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.dark-theme footer {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
+.dark-theme .faq-item {
+  border-color: #444;
+}
+
+.dark-theme .question {
+  color: #ffcc99;
+}
+
+.dark-theme .answer {
+  color: #f0f0f0;
 }
